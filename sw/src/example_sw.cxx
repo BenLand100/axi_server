@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <zmq.hpp>
 
 #define READ 0
@@ -24,7 +25,7 @@ unsigned int zmq_axi(zmq::socket_t &socket, unsigned int cmd, unsigned int addr 
 
 int main(int argc, char **argv) {
     
-    zmq::context_t context;
+    zmq::context_t context(1);
     zmq::socket_t socket(context, ZMQ_PAIR);
 
     socket.connect("tcp://127.0.0.1:7777");
